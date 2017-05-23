@@ -24,6 +24,9 @@ Command line example to run the code
 	th main.lua -datapath ~/data/gait-oulp-c1v1 -mode train  -modelname wuzifeng -gpu -gpudevice 1  -dropout 0.5 -learningrate 1e-3 -momentum 0.9 -calprecision 2 -calval 1 -batchsize 64 -iteration 2000000 >> main.lua.log
 
 # Result
+
+you will see the validation average precision up to 92.50.
+
 you will see results in main.lua.log which like below:
 
     {
@@ -98,3 +101,11 @@ you will see results in main.lua.log which like below:
     2017-05-23 15:54:31[INFO] 00065th/2000000 Val Error 0.693064	
     2017-05-23 15:54:40[INFO] 00065th/2000000 Tes Error 0.693260	
     2017-05-23 15:54:49[INFO] 00065th/2000000 Tra Error 0.693897, 27	
+
+
+# Test
+
+select the model file in trainedNet as a argument of -loadmodel when run main.lua, then you can see the test result in the redirected file.
+the best average recognition precision you can get is  88.29.
+
+	th main.lua -datapath ~/data/gait-oulp-c1v1 -mode evaluate -datapart test  -modelname wuzifeng -gpu -gpudevice 1 -loadmodel ./trainedNets/wuzifeng_tra_0.6666_i7745.t7 >> main.lua.result.log
