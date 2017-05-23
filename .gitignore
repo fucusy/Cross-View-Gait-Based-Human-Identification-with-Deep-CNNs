@@ -1,0 +1,20 @@
+#ignore hidden file
+tmp
+tmp.txt
+tmp.tmp
+
+
+data 
+debug
+
+#antu-generate by python
+.pyc
+preprocess_script/*.pyc
+preprocess_script/.idea
+preprocess_script/*.log
+trainedNets/
+*.log
+
+# IDE
+.idea
+preprocess_script/.idea/workspace.xml
