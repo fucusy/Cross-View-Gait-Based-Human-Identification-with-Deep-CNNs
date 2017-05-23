@@ -1,29 +1,31 @@
-#Introduction
-Code for 2016 TPAMI(IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE) A Comprehensive Study on Cross-View Gait Based Human Identification with Deep CNNs
+# Introduction
+Code for *2016 TPAMI(IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE) A Comprehensive Study on Cross-View Gait Based Human Identification with Deep CNNs*
 
-#Data
-##Prepare the dataset
-get gait dataset from http://www.am.sanken.osaka-u.ac.jp/BiometricDB/GaitLP.html,
-use the Version 1, OULP-C1V1 http://www.am.sanken.osaka-u.ac.jp/BiometricDB/doc/OULP_Doc01a_SubsetStatistics_OULP-C1V1.pdf,
-download the dataset into path: ~/data/, rename the directory to OULP_C1V1_Pack,
-you can see directories OULP-C1V1_NormalizedSilhouette(88x128) and OULP-C1V1_SubjectIDList(FormatVersion1.0) in ~/data/OULP_C1V1_Pack.
+# Data
+## Prepare the dataset
+get gait dataset from `http://www.am.sanken.osaka-u.ac.jp/BiometricDB/GaitLP.html`,
+use the Version 1, OULP-C1V1, `http://www.am.sanken.osaka-u.ac.jp/BiometricDB/doc/OULP_Doc01a_SubsetStatistics_OULP-C1V1.pdf`,
+download the dataset into path: `~/data/`, rename the directory to `OULP_C1V1_Pack`,
+you can see directories `OULP-C1V1_NormalizedSilhouette(88x128)` and `OULP-C1V1_SubjectIDList(FormatVersion1.0)` in `~/data/OULP_C1V1_Pack`.
 
-##Prepare training, validation and test dataset
-protocol, described in paper: Cross-View Gait Recognition Using View-Dependent Discriminative Analysis.
-In this experiments, training set described in the paper was split into traning and validation part, in OULP_setting/list_train.txt
-and OULP_setting/list_val.txt
+## Prepare training, validation and test dataset
+protocol, described in paper: *Cross-View Gait Recognition Using View-Dependent Discriminative Analysis*.
+In this experiments, training set described in the paper was split into traning and validation part, in `OULP_setting/list_train.txt`
+and `OULP_setting/list_val.txt`
 
 1. change current directory to here
-1. move OULP_setting directory to ~/data/OULP_setting, run command line: `cp -r OULP_setting ~/data/OULP_setting`
+1. move OULP_setting directory to `~/data/OULP_setting`, run command line: `cp -r OULP_setting ~/data/OULP_setting`
 2. run command line:`python preprocess_script/oulp_prepare.py ~/data/gait-oulp-c1v1`
 
-##Running the code
+## Running the code
 
 Command line example to run the code
-    th main.lua -datapath ~/data/gait-oulp-c1v1 -mode train  -modelname wuzifeng -gpu -gpudevice 1  -dropout 0.5 -learningrate 1e-3 -momentum 0.9 -calprecision 2 -calval 1 -batchsize 64 -iteration 2000000 >> main.lua.log
 
-#Result
+	th main.lua -datapath ~/data/gait-oulp-c1v1 -mode train  -modelname wuzifeng -gpu -gpudevice 1  -dropout 0.5 -learningrate 1e-3 -momentum 0.9 -calprecision 2 -calval 1 -batchsize 64 -iteration 2000000 >> main.lua.log
+
+# Result
 you will see results in main.lua.log which like below:
+
     {
       iteration : 2000000
       seed : 1
